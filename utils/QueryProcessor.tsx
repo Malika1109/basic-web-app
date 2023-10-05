@@ -51,7 +51,29 @@ export default function QueryProcessor(query: string): string {
     } 
   }
 
+    // Function to check if a number is both a square and a cube
+  function isSquareAndCube(number:number) {
+    // Calculate the square root and cube root
+    const squareRoot = Math.sqrt(number);
+    const cubeRoot = Math.cbrt(number);
 
+    // Check if both roots are integers
+    return Number.isInteger(squareRoot) && Number.isInteger(cubeRoot);
+  }
+  
+  if (query.includes("square")) {
+    const numberPattern = /\d+/g;
+    const numbers = query.match(numberPattern);
+    if (numbers && numbers.length > 0){
+    for (const number of numbers){
+      if (isSquareAndCube(parseInt(number))){
+        return number.toString();
+      }
+    }
+  }
+    return "nothing";
+
+  }
 
   return "";
 }
