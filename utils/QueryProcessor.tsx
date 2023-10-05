@@ -28,6 +28,19 @@ export default function QueryProcessor(query: string): string {
     return (result);
   }
 
+  if (query.includes("largest")) {
+    const numberPattern = /\d+/g;
+    const numbers = query.match(numberPattern);
+
+    if (numbers && numbers.length >= 3) {
+        const num1 = parseInt(numbers[0], 10);
+        const num2 = parseInt(numbers[1], 10);
+        const num3 = parseInt(numbers[2], 10);
+        const result = Math.max(num1, num2, num3).toString();
+        return result;
+    } 
+  }
+
   return "";
 }
 
