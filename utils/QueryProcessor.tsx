@@ -18,6 +18,17 @@ export default function QueryProcessor(query: string): string {
       "Malika&BoushraNew"
     );
   }
+  if (query.includes("plus")) {
+    let num1;
+    let num2;
+    let result;
+    num1 = parseInt(query.match(/\d+/g)![0]);
+    num2 = parseInt(query.match(/\d+/g)![1]);
+    result = (num1 + num2).toString();
+    return (result);
+  }
 
   return "";
 }
+
+
