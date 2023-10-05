@@ -28,6 +28,16 @@ export default function QueryProcessor(query: string): string {
     return (result);
   }
 
+  if (query.includes("multiplied")) {
+    let num1;
+    let num2;
+    let result;
+    num1 = parseInt(query.match(/\d+/g)![0]);
+    num2 = parseInt(query.match(/\d+/g)![1]);
+    result = (num1 * num2).toString();
+    return (result);
+  }
+
   if (query.includes("largest")) {
     const numberPattern = /\d+/g;
     const numbers = query.match(numberPattern);
@@ -40,6 +50,8 @@ export default function QueryProcessor(query: string): string {
         return result;
     } 
   }
+
+
 
   return "";
 }
